@@ -184,19 +184,18 @@
 				
 				$( 'ul.menu-secondary > li' ).addClass( 'moved-item' ); // tag moved items so we can move them back
 				$( 'ul.menu-secondary > li' ).appendTo( 'ul.menu-primary' );
-				$( '.nav-secondary' ).hide();
-			
-			} else {
-				
-				$( '.nav-secondary' ).show();
-				$( 'ul.menu-primary > li.moved-item' ).appendTo( 'ul.menu-secondary' );
-				$( 'ul.menu-secondary > li' ).removeClass( 'moved-item' );
 			
 			}
 			
-		}
+		} else {
 
-		console.log( $( window ).width() );
+			if ( $( '.nav-secondary' )[0] !== undefined ) {
+
+				$( 'ul.menu-primary > li.moved-item' ).appendTo( 'ul.menu-secondary' );
+				$( 'ul.menu-secondary > li' ).removeClass( 'moved-item' );
+
+			}
+		}
 
 	}
 	
@@ -205,7 +204,7 @@
 
 		_combineMenus();
 
-		$( window ).resize( _combineMenus() );
+		$( window ).resize( _combineMenus );
 
 		startertheme.params = typeof starterthemeL10n === 'undefined' ? '' : starterthemeL10n;
 

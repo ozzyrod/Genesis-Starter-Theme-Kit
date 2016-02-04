@@ -961,6 +961,7 @@ img.alignright,
 	border-bottom: 1px solid #ddd;
 	font-size: .8em;
 	font-style: italic;
+	display: none;
 }
 
 
@@ -1476,6 +1477,12 @@ ul.children {
 	.nav-secondary > .wrap {
 		max-width: 1240px;
 		padding: 0 40px;
+	}
+
+	/* Secondary Navigation */
+
+	.nav-secondary {
+		display: block;
 	}
 
 	/* Mobile Navigation */
