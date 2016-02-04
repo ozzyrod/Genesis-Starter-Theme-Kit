@@ -1,6 +1,6 @@
 /**
  *
- * Responsive Menu for Genesis Framework markup
+ * Modified Responsive Menu for Genesis Framework markup (accessible)
  *
  * @version 1.0.0
  * @author Robin Cornett, Calvin Koepke
@@ -45,9 +45,9 @@
 	// add nav class and ID to related button
 	function _addClassID() {
 		var $this = $( this ),
-			nav   = $this.next( 'nav' ),
+			nav   = $this.parents().find( 'nav' ),
 			id    = 'class';
-		$this.addClass( $( nav ).attr( 'class' ) );
+		// $this.addClass( $( nav ).attr( 'class' ) );
 		if ( $( nav ).attr( 'id' ) ) {
 			id = 'id';
 		}
@@ -173,7 +173,40 @@
 		return 'false' === value ? 'true' : 'false';
 	}
 
+	/**
+	 * combine menus if there is a secondary navigation
+	 */
+	function _combineMenus(){
+
+		if ( $( window ).width() < 1200 ) {
+
+			if ( $( '.nav-secondary' )[0] !== undefined ) {
+				
+				$( 'ul.menu-secondary > li' ).addClass( 'moved-item' ); // tag moved items so we can move them back
+				$( 'ul.menu-secondary > li' ).appendTo( 'ul.menu-primary' );
+				$( '.nav-secondary' ).hide();
+			
+			} else {
+				
+				$( '.nav-secondary' ).show();
+				$( 'ul.menu-primary > li.moved-item' ).appendTo( 'ul.menu-secondary' );
+				$( 'ul.menu-secondary > li' ).removeClass( 'moved-item' );
+			
+			}
+			
+		}
+
+		console.log( $( window ).width() );
+
+	}
+	
+
 	$(document).ready(function () {
+
+		_combineMenus();
+
+		$( window ).resize( _combineMenus() );
+
 		startertheme.params = typeof starterthemeL10n === 'undefined' ? '' : starterthemeL10n;
 
 		if ( typeof startertheme.params !== 'undefined' ) {

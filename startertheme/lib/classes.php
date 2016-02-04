@@ -12,23 +12,31 @@
 add_filter( 'body_class', 'startertheme_body_classes' );
 function startertheme_body_classes( $classes ) {
 
-	if ( is_home() || is_page_template( 'page_blog.php' ) )
-		$classes[] = 'blog-page';
+	if ( is_home() )
+		$classes[] = 'page-blog';
 
 	if ( is_front_page() )
-		$classes[] = 'front-page';
+		$classes[] = 'page-front';
 
 	if ( is_archive() )
-		$classes[] = 'archive-page';
+		$classes[] = 'page-archive';
 
 	if ( is_category() )
-		$classes[] = 'category-page';
+		$classes[] = 'page-category';
 
 	if ( is_tag() )
-		$classes[] = 'tag-page';
+		$classes[] = 'page-tag';
 
 	if ( is_search() )
-		$classes[] = 'search-page';
+		$classes[] = 'page-search';
+
+	if ( is_page_template() && get_page_template_slug() != false ) {
+
+		$template = basename( get_page_template_slug() );		
+		$template_class = str_replace( '.php', '', $template );
+
+		$classes[] = $template_class;
+	}
 
 	return $classes;
 

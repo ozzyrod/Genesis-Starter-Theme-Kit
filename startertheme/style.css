@@ -37,11 +37,19 @@
 	- Columns
 	- Widgets
 - Titles
-	-
+	- Site Header
+	- Widgets
+	- Author Box
+	- Archive Description
 - Navigation
 	- Primary Navigation
+	- Secondary Navigation
+	- Menu Toggle
 - Content Areas
 	- Entries
+	- Entry Meta
+	- Comments
+	- Pagination
 - Sidebars
 	- Primary Sidebar
 	- Secondary Sidebar
@@ -49,31 +57,21 @@
 	- Header Widget Area
 - Common Classes
 	- Archive/Author Box
-	- Breadcrumps
+	- Breadcrumbs
 - Common Plugins
 	- Jetpack
+	- Genesis eNews Extended
 - Footer
 	- Widgets
 - Media Queries
-	- Retina
-	- Tablet
-	- Desktop
+	- Retina (2x)
+	- 768
+	- 1200
+	- 1600
 
 
 - Widgets
 	- Featured Content
-- Plugins
-	- Genesis eNews Extended
-	- Jetpack
-- Site Header
-	- Title Area
-	- Widget Area
-- Site Navigation
-	- Accessible Menu
-	- Site Header Navigation
-	- Primary Navigation
-	- Secondary Navigation
-	- Skip Links
 - Content Area
 	- Entries
 	- Entry Meta
@@ -174,7 +172,7 @@ body {
 	font-size: 16px;
 	font-size: 1.6rem;
 	font-weight: 400;
-	line-height: 1.45;
+	line-height: 1.611;
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
 }
@@ -261,7 +259,8 @@ blockquote {
 	padding-left: 10px;
 }
 
-small {
+small,
+cite {
 	font-size: 0.75em;
 }
 
@@ -274,36 +273,34 @@ h4,
 h5,
 h6 {
 	color: #111;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: 700;
-	line-height: 1.2;
 	margin: 1.414em 0 0.5em;
 }
 
 h1 {
-	font-size: 30px;
-	font-size: 3rem;
+	font-size: 32px;
+	font-size: 3.2rem;
 }
 
 h2 {
 	font-size: 26px;
 	font-size: 2.6rem;
+	line-height: 1.15em;
 }
 
 h3 {
 	font-size: 22px;
 	font-size: 2.2rem;
+	line-height: 1.13em;
 }
 
-h4 {
-	font-size: 20px;
-	font-size: 2rem;
-}
-
+h4,
 h5,
 h6 {
 	font-size: 18px;
 	font-size: 1.8rem;
+	line-height: 1.1em;
 }
 
 /*----------  Objects  ----------*/
@@ -324,6 +321,10 @@ img {
 .featured-content img,
 .gallery img {
 	width: auto;
+}
+
+.wp-caption {
+	margin: 0;
 }
 
 /*----------  Tables  ----------*/
@@ -363,10 +364,12 @@ input,
 select,
 textarea {
 	background-color: #fff;
+	border-radius: 0;
 	border: 1px solid #ddd;
 	color: #333;
 	padding: 16px;
 	width: 100%;
+	-webkit-appearance: none; /* Remove iOS styles */
 }
 
 input:focus,
@@ -399,7 +402,7 @@ input[type="submit"],
 .button {
 	border: 3px solid currentColor;
 	cursor: pointer;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: 700;
 	padding: 16px 24px;
 	text-transform: uppercase;
@@ -462,7 +465,6 @@ input[type="search"]::-webkit-search-results-button {
 
 .site-header .search-form {
 	float: right;
-	margin-top: 12px;
 }
 
 .entry-content .search-form,
@@ -586,10 +588,10 @@ img.centered,
 	margin: 0 auto 24px;
 }
 
-/*img.alignnone,
+img.alignnone,
 .alignnone {
 	margin-bottom: 12px;
-}*/
+}
 
 a.alignleft,
 img.alignleft,
@@ -606,7 +608,7 @@ img.alignright,
 .wp-caption-text {
 	font-size: 14px;
 	font-size: 1.4rem;
-	font-weight: 700;
+	font-style: italic;
 	text-align: center;
 }
 
@@ -688,8 +690,7 @@ img.alignright,
 	float: right;
 }
 
-.alignleft .avatar,
-.author-box .avatar {
+.alignleft .avatar {
 	margin-left: 24px;
 }
 
@@ -709,7 +710,8 @@ img.alignright,
 }
 
 .site-inner,
-.wrap {
+.wrap,
+.site-footer {
 	margin: 0 auto;
 	max-width: 1200px;
 	width: 100%;
@@ -748,73 +750,9 @@ img.alignright,
 }
 
 .header-widget-area {
+	display: none;
 	float: right;
 }
-
-
-
-/*----------  Content Wrappers  ----------*/
-
-/* Layout Wrappers */
-
-/*.content-sidebar-sidebar .content-sidebar-wrap,
-.sidebar-content-sidebar .content-sidebar-wrap,
-.sidebar-sidebar-content .content-sidebar-wrap {
-	width: 980px;
-}*/
-
-/*.content-sidebar-sidebar .content-sidebar-wrap {
-	float: left;
-}
-
-.sidebar-content-sidebar .content-sidebar-wrap,
-.sidebar-sidebar-content .content-sidebar-wrap {
-	float: right;
-}
-
-.content {
-	float: right;
-	width: 800px;
-}
-
-.content-sidebar .content,
-.content-sidebar-sidebar .content,
-.sidebar-content-sidebar .content {
-	float: left;
-}
-
-.content-sidebar-sidebar .content,
-.sidebar-content-sidebar .content,
-.sidebar-sidebar-content .content {
-	width: 580px;
-}*/
-
-.full-width-content .content {
-	width: 100%;
-}
-
-/* Primary Sidebar */
-
-/*.sidebar-primary {
-	float: right;
-	width: 360px;
-}
-
-.sidebar-content .sidebar-primary,
-.sidebar-sidebar-content .sidebar-primary {
-	float: left;
-}*/
-
-/* Secondary Sidebar */
-
-/*.sidebar-secondary {
-	float: left;
-	width: 180px;
-}
-
-.content-sidebar-sidebar .sidebar-secondary {
-	float: right;
-}*/
 
 /*----------  Columns  ----------*/
 
@@ -906,7 +844,7 @@ img.alignright,
 /*----------  Site Header  ----------*/
 
 .site-title {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 20px;
 	font-size: 2rem;
 	font-weight: bold;
@@ -919,26 +857,14 @@ img.alignright,
 	font-size: 1em;
 }
 
-/*----------  Entries  ----------*/
-
-.entry-title {
-	font-size: 30px;
-	font-size: 3rem;
-}
-
-/*----------  Archives  ----------*/
-
-.archive-title {
-	font-size: 30px;
-	font-size: 3rem;
-}
-
 /*----------  Widgets  ----------*/
 
 .widget-title,
-.footer-widgets .widget-title {
+.footer-widgets .widget-title,
+.sidebar .entry-title {
 	font-size: 22px;
 	font-size: 2.2rem;
+	margin-top: 0;
 }
 
 .footer-widgets .widget-title {
@@ -952,6 +878,13 @@ img.alignright,
 	font-size: 1.8rem;
 	margin-top: 0;
 }
+
+/*----------  Archive Description  ----------*/
+
+.archive-title {
+	margin: 0;
+}
+
 
 /*==================================
 =            Navigation            =
@@ -1022,6 +955,15 @@ img.alignright,
 	padding-top: 111px;
 }
 
+/*----------  Secondary Navigation  ----------*/
+
+.nav-secondary {
+	border-bottom: 1px solid #ddd;
+	font-size: .8em;
+	font-style: italic;
+}
+
+
 /*----------  Menu Toggle  ----------*/
 
 .menu-toggle {
@@ -1038,8 +980,10 @@ img.alignright,
 
 .menu-toggle:focus,
 .menu-toggle:active,
+.menu-toggle:hover,
 .sub-menu-toggle:focus,
-.sub-menu-toggle:active {
+.sub-menu-toggle:active,
+.sub-menu-toggle:hover {
 	background: transparent;
 	color: #444;
 }
@@ -1080,14 +1024,8 @@ img.alignright,
 	text-rendering: optimizeLegibility;
 }
 
-.entry-content > a {
-	display: block;
-	margin-bottom: 20px;
-}
-
 .entry-content code {
-	background-color: #333;
-	color: #ddd;
+	background-color: #ddd;
 }
 
 /*----------  Entry Meta  ----------*/
@@ -1101,6 +1039,7 @@ p.entry-meta {
 
 .comment-header {
 	margin-bottom: 20px;
+	overflow: hidden;
 }
 
 .comment-author {
@@ -1108,7 +1047,8 @@ p.entry-meta {
 }
 
 .comment .avatar {
-	margin: 0 0 24px 16px;
+	float: left;
+	margin: 0 10px 0 0;
 }
 
 .says,
@@ -1123,6 +1063,7 @@ p.entry-meta {
 	clear: both;
 }
 
+li.pingback,
 li.comment > article {
 	margin-bottom: 40px;
 }
@@ -1133,7 +1074,42 @@ ul.children {
 
 .comment-reply-title > small,
 .logged-in-as {
-	font-size: .8em;
+	font-family: Georgia, serif;
+	font-size: 16px;
+	font-size: 1.6rem;
+	font-style: italic;
+	font-weight: normal;
+}
+
+/*----------  Pagination  ----------*/
+
+.pagination {
+	overflow: hidden;
+	padding: 40px 0;
+}
+
+.pagination ul {
+	text-align: center;
+}
+
+.pagination li {
+	display: inline-block;
+}
+
+.pagination li.active a {
+	border: 0;
+	font-weight: bold;
+}
+
+.pagination a {
+	font-style: italic;
+	margin: 0 10px;
+}
+
+.pagination .pagination-next,
+.pagination .pagination-previous {
+	display: block;
+	width: 100%;
 }
 
 
@@ -1153,6 +1129,17 @@ ul.children {
 
 /*----------  Header Widget Area  ----------*/
 
+.header-widget-area {
+	display: none;
+	max-width: 600px;
+	width: 100%;
+}
+
+/*----------  Sidebar Widgets  ----------*/
+
+.sidebar .widget {
+	margin-bottom: 40px;
+}
 
 /*======================================
 =            Common Classes            =
@@ -1164,7 +1151,6 @@ ul.children {
 .author-box {
 	border-bottom: 1px solid #ddd;
 	border-top: 1px solid #ddd;
-	margin: 40px 0 10px;
     padding: 40px 0 40px;
 }
 
@@ -1173,9 +1159,8 @@ ul.children {
 	margin: 20px 0 40px;
 }
 
-.archive-description .entry-title {
-	font-weight: normal;
-	margin: 0;
+.archive-description {
+	margin: 0 0 40px;
 }
 
 .archive-description p:last-child,
@@ -1183,7 +1168,12 @@ ul.children {
 	margin-bottom: 0;
 }
 
-/*----------  Breadcrumps  ----------*/
+.author-box .avatar {
+	margin: 0 0 24px 24px;
+	max-width: 70px;
+}
+
+/*----------  Breadcrumbs  ----------*/
 
 .breadcrumb {
 	font-size: .8em;
@@ -1201,6 +1191,13 @@ ul.children {
 #wpstats {
 	display: none;
 }
+
+/*----------  Genesis eNews Widget  ----------*/
+
+.enews input {
+	margin-bottom: 20px;
+}
+
 
 
 /*==============================
@@ -1223,7 +1220,7 @@ ul.children {
 .footer-widgets {
 	clear: both;
 	overflow: hidden;
-	padding: 0 10px 40px;
+	padding: 40px 10px;
 }
 
 .footer-widgets .widget {
@@ -1235,11 +1232,96 @@ ul.children {
 =            Media Queries            =
 =====================================*/
 
-/*----------  Retina  ----------*/
+/*----------  Retina (2x)  ----------*/
 
-/*----------  Tablet  ----------*/
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+
+}
+
+/*----------  768  ----------*/
 
 @media screen and (min-width: 768px) {
+
+	/* Typography */
+	body,
+	body > div,
+	.author-box {
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+
+	h1,
+	.entry-title {
+		font-size: 40px;
+		font-size: 4rem;
+		line-height: 1.25em;
+	}
+
+	h2 {
+		font-size: 32px;
+		font-size: 3.2rem;
+		line-height: 1.25em;
+	}
+
+	h3 {
+		font-size: 24px;
+		font-size: 2.4rem;
+		line-height: 1.25em;
+	}
+
+	h4,
+	h5,
+	h6 {
+		font-size: 18px;
+		font-size: 1.8rem;
+		line-height: 1.22em;
+	}
+
+	blockquote {
+		font-size: 1.3em;
+		padding-left: 40px;
+	}
+
+	/* Structure */
+	.site-inner,
+	.site-footer {
+		padding: 40px;
+	}
+
+	.footer-widgets,
+	.site-header > .wrap {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+
+	/* Media */
+	.author-box .avatar {
+		max-width: 100%;
+	}
+
+	/* Comments */
+	.comment .avatar {
+		margin-right: 24px;
+	}
+
+	ul.children {
+		margin-left: 40px;
+	}
+
+	/* Pagination */
+	.pagination .pagination-next,
+	.pagination .pagination-previous {
+		display: inline-block;
+		width: auto;
+	}
+
+	.pagination .pagination-next {
+		float: right;
+	}
+
+	.pagination .pagination-previous {
+		float: left;
+	}
 	
 	/* Footer Widgets */
 	.footer-widgets-1,
@@ -1256,42 +1338,60 @@ ul.children {
 
 }
 
-/*----------  Desktop  ----------*/
+/*----------  1200  ----------*/
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1200px) {
+
+	/* Structure */
+
+	.site-inner {
+		margin-top: 0;
+	}
+
+	.site-header {
+		position: static;
+	}
+
+	.site-header > .wrap {
+		padding: 40px;
+	}
 
 	/* Typography */
-	h1 {
-		font-size: 40px;
-		font-size: 4rem;
+
+	h1,
+	.entry-title {
+		font-size: 48px;
+		font-size: 4.8rem;
+		line-height: 1.05em;
 	}
 
 	h2 {
 		font-size: 36px;
 		font-size: 3.6rem;
+		line-height: 1.25em;
 	}
 
 	h3 {
-		font-size: 33px;
-		font-size: 3.3rem;
+		font-size: 28px;
+		font-size: 2.8rem;
+		line-height: 1.25em;
 	}
 
-	h4 {
-		font-size: 29px;
-		font-size: 2.9rem;
-	}
-
-	h5 {
-		font-size: 25px;
-		font-size: 2.5rem;
-	}
-
+	h4,
+	h5,
 	h6 {
-		font-size: 22px;
-		font-size: 2.2rem
+		font-size: 20px;
+		font-size: 2rem;
+		line-height: 1.25em;
+	}
+
+	.site-title {
+		font-size: 30px;
+		font-size: 3rem;
 	}
 
 	/* Navigation */
+
 	.genesis-nav-menu {
 		clear: both;
 		line-height: 1;
@@ -1319,6 +1419,7 @@ ul.children {
 	.genesis-nav-menu .sub-menu {
 		display: none;
 		left: 0;
+		margin-left: 0;
 		position: absolute;
 		width: 200px;
 		z-index: 99;
@@ -1328,6 +1429,7 @@ ul.children {
 		background: #fff;
 		border: 1px solid #ddd;
 		border-top: 0;
+		padding: 20px;
 		word-wrap: break-word;
 	}
 
@@ -1340,6 +1442,10 @@ ul.children {
 		top: 0;
 	}
 
+	.genesis-nav-menu .sub-menu .sub-menu a {
+		padding: 20px;
+	}
+
 	.genesis-nav-menu .sub-menu a,
 	.genesis-nav-menu .sub-menu .menu-item {
 		display: block;
@@ -1350,17 +1456,116 @@ ul.children {
 		left: auto;
 	}
 
-	/*----------  Primary Navigation  ----------*/
+	/* Genesis Navigation */
 
 	.nav-primary,
 	.nav-primary .genesis-nav-menu {
 		width: 100%;
 	}
 
-	.nav-primary {}
-
-	.nav-primary > .wrap {
-		max-width: 1240px;
+	.nav-primary,
+	.admin-bar .nav-primary {
+		display: block;
+		height: auto;
+		overflow: visible;
+		padding: 0;
+		position: static;
 	}
+
+	.nav-primary > .wrap,
+	.nav-secondary > .wrap {
+		max-width: 1240px;
+		padding: 0 40px;
+	}
+
+	/* Mobile Navigation */
+
+	.menu-toggle,
+	.sub-menu-toggle {
+		display: none;
+	}
+
+	.genesis-nav-menu .menu-item.menu-item-has-children > a {
+		padding-right: 20px;
+	}
+
+	/* Layout Wrappers */
+
+	.content-sidebar-sidebar .content-sidebar-wrap,
+	.sidebar-content-sidebar .content-sidebar-wrap,
+	.sidebar-sidebar-content .content-sidebar-wrap {
+		width: 980px;
+	}
+
+	.content-sidebar-sidebar .content-sidebar-wrap {
+		float: left;
+	}
+
+	.sidebar-content-sidebar .content-sidebar-wrap,
+	.sidebar-sidebar-content .content-sidebar-wrap {
+		float: right;
+	}
+
+	.content {
+		float: right;
+		width: 760px;
+	}
+
+	.content-sidebar .content,
+	.content-sidebar-sidebar .content,
+	.sidebar-content-sidebar .content {
+		float: left;
+	}
+
+	.content-sidebar-sidebar .content,
+	.sidebar-content-sidebar .content,
+	.sidebar-sidebar-content .content {
+		width: 580px;
+	}
+
+	.full-width-content .content {
+		width: 100%;
+	}
+
+	/* Primary Sidebar */
+
+	.sidebar-primary {
+		float: right;
+		width: 320px;
+	}
+
+	.sidebar-content .sidebar-primary,
+	.sidebar-sidebar-content .sidebar-primary {
+		float: left;
+	}
+
+	/* Secondary Sidebar */
+
+	.sidebar-secondary {
+		float: left;
+		width: 180px;
+	}
+
+	.content-sidebar-sidebar .sidebar-secondary {
+		float: right;
+	}
+
+	/* Widget Areas */
+
+	.sidebar,
+	.header-widget-area {
+		display: block;
+	}
+
+	.footer-widgets {
+		margin-top: 40px;
+	}
+
+}
+
+/*----------  1600  ----------*/
+
+@media only screen and ( max-width: 1600px ) {
+
 
 }

@@ -51,16 +51,6 @@ include_once( get_template_directory() . '/lib/init.php');
 
 /**
  *
- * Apply custom body classes
- *
- * @since 1.0.0
- * @uses /lib/classes.php
- *
- */
-include_once( get_stylesheet_directory() . '/lib/classes.php' );
-
-/**
- *
  * Load files in the /assets/ directory
  *
  * @since 1.0.0
@@ -69,9 +59,12 @@ include_once( get_stylesheet_directory() . '/lib/classes.php' );
 add_action( 'wp_enqueue_scripts', 'startertheme_load_assets' );
 function startertheme_load_assets() {
 
+	/* Load Google Font */
+	wp_enqueue_style( 'startertheme-fonts', '//fonts.googleapis.com/css?family=Lato:400,700,700italic', array(), CHILD_THEME_VERSION );
+
 	/* Load JS */
-	wp_enqueue_script( 'startertheme-global', get_stylesheet_directory_uri() . '/assets/js/global.js', array( 'jquery' ), CHILD_THEME_VERSION );
-	wp_enqueue_script( 'startertheme-responsive-menu', get_stylesheet_directory_uri() . '/assets/js/responsive-menu.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
+	wp_enqueue_script( 'startertheme-global', get_stylesheet_directory_uri() . '/assets/js/global.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
+	wp_enqueue_script( 'startertheme-responsive-menu', get_stylesheet_directory_uri() . '/assets/js/responsive-menu.js', array( 'jquery', 'startertheme-global' ), CHILD_THEME_VERSION, true );
 
 	/* Load Icons */
 	wp_enqueue_style( 'dashicons' );
@@ -98,4 +91,24 @@ add_theme_support( 'genesis-accessibility', array( 'skip-links', 'search-form', 
 add_theme_support( 'genesis-after-entry-widget-area' ); /* After Entry Widget Area */
 add_theme_support( 'genesis-footer-widgets', 3 ); /* Add Footer Widgets Markup for 3 */
 
+
+/**
+ *
+ * Apply custom body classes
+ *
+ * @since 1.0.0
+ * @uses /lib/classes.php
+ *
+ */
+include_once( get_stylesheet_directory() . '/lib/classes.php' );
+
+/**
+ *
+ * Apply Starter Theme defaults (overrides default Genesis settings)
+ *
+ * @since 1.0.0
+ * @uses /lib/defaults.php
+ *
+ */
+include_once( get_stylesheet_directory() . '/lib/defaults.php' );
 
