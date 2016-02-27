@@ -1,5 +1,4 @@
 # Genesis Starter Theme - Dev Kit
->Finally, a starter theme for the Genesis Framework that doesn't complicate your life.
 
 A development kit for WordPress themes which includes starter SCSS files and a Gulp task file which automates:
 
@@ -8,10 +7,11 @@ A development kit for WordPress themes which includes starter SCSS files and a G
 3. generation of a POT file for translation
 4. Automatic zipping of the theme without including the development files.
 
-**SUGGESTED**: This dev kit was originally built for my own Starter theme on the Genesis Framework. <a href="https://calvinkoepke.com/genesis-starter-theme/">Download the full Starter theme for free &rarr;</a>
+This dev kit was originally built for my own Starter theme on the Genesis Framework, but it can be used for any WordPress theme following the file structure laid out below.
 
-License: MIT
-Author: <a href="https://twitter.com/cjkoepke">Calvin Koepke</a>
+<a href="https://calvinkoepke.com/genesis-starter-theme/">Download the full Starter theme for free &rarr;</a>
+
+Follow me on Twitter: <a href="https://twitter.com/cjkoepke">@cjkoepke</a>
 
 ### Reasons to Use Starter
 
