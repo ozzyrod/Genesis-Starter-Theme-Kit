@@ -13,11 +13,11 @@ a {
 	border-bottom: 1px solid currentColor;
 	color: $linkDefault;
 	text-decoration: none;
-}
 
-a:hover,
-a:focus {
-	border-bottom: 0;
+	&:hover,
+	&:focus {
+		border-bottom: 0;
+	}
 }
 
 p {
@@ -35,29 +35,27 @@ li {
 	list-style-type: none;
 }
 
-.entry-content ol,
-.entry-content ul,
-.footer-widgets ol,
-.footer-widgets ul {
-	margin-bottom: 28px;
-	margin-left: 40px;
-}
+.entry-content,
+.footer-widgets {
 
-.entry-content ol > li,
-.footer-widgets ol > li {
-	list-style-type: decimal;
-}
+	ol,
+	ul {
+		margin-bottom: 28px;
+		margin-left: 40px;
+	}
 
-.entry-content ul > li,
-.footer-widgets ul > li {
-	list-style-type: disc;
-}
+	ol > li {
+		list-style-type: decimal;
+	}
 
-.entry-content ol ol,
-.entry-content ul ul,
-.footer-widgets ol ol,
-.footer-widgets ul ul {
-	margin-bottom: 0;
+	ul > li {
+		list-style-type: disc;
+	}
+
+	ol ol,
+	ul ul {
+		margin-bottom: 0;
+	}
 }
 
 hr {

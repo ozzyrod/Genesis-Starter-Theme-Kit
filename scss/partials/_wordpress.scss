@@ -69,10 +69,13 @@ img.alignright,
 .sticky {
 }
 
-.entry-content .wp-audio-shortcode,
-.entry-content .wp-playlist,
-.entry-content .wp-video {
-	margin: 0 0 28px;
+.entry-content {
+
+	.wp-audio-shortcode,
+	.wp-playlist,
+	.wp-video {
+		margin: 0 0 28px;
+	}
 }
 
 #wpadminbar {
@@ -127,11 +130,11 @@ img.alignright,
 	border: 1px solid $colorLight;
 	height: auto;
 	padding: 4px;
-}
 
-.gallery img:hover,
-.gallery img:focus {
-	border: 1px solid $colorLight;
+	&:hover,
+	&:focus {
+		border: 1px solid $colorLight;
+	}
 }
 
 /*----------  Avatar  ----------*/
