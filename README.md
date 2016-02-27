@@ -35,8 +35,8 @@ Follow me on Twitter: <a href="https://twitter.com/cjkoepke">@cjkoepke</a>
 - Clone the repo to your desktop, somewhere **other** than in your theme root (you don't want updates to override your theme edits!)
 - Copy the files in the cloned repo to your theme root.
 - Move `/scss/` to the `/assets/` directory.
-- In terminal, do the following command:
-`npm install --save-dev`
+- In terminal, navigate to the theme root directory, and do the following command:
+```npm install --save-dev```
 - You're good to go!
 
 ## What Gulp Does
