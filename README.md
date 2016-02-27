@@ -7,6 +7,10 @@ A development kit for WordPress themes which includes starter SCSS files and a G
 3. generation of a POT file for translation
 4. Automatic zipping of the theme without including the development files.
 
+<a href="#installation">Installation Instructions</a>
+
+<hr/>
+
 This dev kit was originally built for my own Starter theme on the Genesis Framework, but it can be used for any WordPress theme following the file structure laid out below.
 
 <a href="https://calvinkoepke.com/genesis-starter-theme/">Download the full Starter theme for free &rarr;</a>
