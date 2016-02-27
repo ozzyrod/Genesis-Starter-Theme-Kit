@@ -11,7 +11,7 @@ A development kit for WordPress themes which includes starter SCSS files and a G
 
 <hr/>
 
-This dev kit was originally built for my own Starter theme on the Genesis Framework, but it can be used for any WordPress theme following the file structure laid out below.
+This dev kit was originally built for my own Starter theme on the Genesis Framework, but it can be used for any WordPress theme with minimal modification (mostly file structuring and naming differences).
 
 <a href="https://calvinkoepke.com/genesis-starter-theme/">Download the full Starter theme for free &rarr;</a>
 
@@ -25,11 +25,11 @@ Follow me on Twitter: <a href="https://twitter.com/cjkoepke">@cjkoepke</a>
 - It removes unnecessary (and discouraged) templates from the parent Genesis theme (say goodbye to the blog template).
 - It has almost **zero** styling, reducing visual influence on your projects.
 - It comes with a ready-to-use, modified version of <a href="http://robincornett.com/genesis-responsive-menu/">Robin Cornett's responsive menu</a>.
+- It comes with a ready page template, like a Landing Page. Ideas for more to be added in future releases.
 
-### Optional Perks
+<a href="https://calvinkoepke.com/genesis-starter-theme/">Download the full Starter theme for free &rarr;</a>
 
-- Starter comes with SCSS files, but are not required to start out of the gate — just delete if that's not your thing.
-- It also comes with a landing page template, with ideas for more to be added in future releases.
+</hr>
 
 ## Installation
 - Clone the repo to your desktop, somewhere **other** than in your theme root (you don't want updates to override your theme edits!)
