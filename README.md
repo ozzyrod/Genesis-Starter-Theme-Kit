@@ -37,7 +37,7 @@ Follow me on Twitter: <a href="https://twitter.com/cjkoepke">@cjkoepke</a>
 - Move `/scss/` to the `/assets/` directory.
 - In terminal, navigate to the theme root directory, and do the following command:
 
-```npm install --save-dev```
+	```npm install --save-dev```
 
 - You're good to go!
 
