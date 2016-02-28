@@ -7,43 +7,45 @@
 .genesis-nav-menu {
 	clear: both;
 	line-height: 1;
-}
 
-.genesis-nav-menu .menu-item {
-	display: block;
-	position: relative;
-	text-align: right;
-}
+	.menu-item {
+		display: block;
+		position: relative;
+		text-align: right;
 
-.genesis-nav-menu a {
-	border-bottom: 1px solid #ddd;
-	display: block;
-	padding: 20px 10px;
-	text-align: left;
-}
+		> a {
+			padding: 20px;
+		}
+	}
 
-.genesis-nav-menu .menu-item.menu-item-has-children > a {
-	padding-right: 50px;
-}
+	a {
+		border-bottom: 1px solid #ddd;
+		display: block;
+		padding: 20px 10px;
+		text-align: left;
+	}
 
-.genesis-nav-menu > .menu-item > a {
-	padding: 20px;
-}
+	.menu-item.menu-item-has-children > a {
+		padding-right: 50px;
+	}
 
-/* Sub Menu */
+	/* Sub Menu */
+	.sub-menu {
+		display: none;
 
-.genesis-nav-menu .sub-menu {
-	display: none;
-}
+		a {
+			font-size: .8em;
+			padding-left: 40px;
+			word-wrap: break-word;
+		}
 
-.genesis-nav-menu .sub-menu a {
-	font-size: .8em;
-	padding-left: 40px;
-	word-wrap: break-word;
-}
+		.sub-menu {
 
-.genesis-nav-menu .sub-menu .sub-menu a {
-	padding-left: 60px;
+			a {
+				padding-left: 60px;
+			}
+		}
+	}
 }
 
 /*----------  Primary Navigation  ----------*/
@@ -93,14 +95,15 @@
 	text-transform: none;
 }
 
-.menu-toggle:focus,
-.menu-toggle:active,
-.menu-toggle:hover,
-.sub-menu-toggle:focus,
-.sub-menu-toggle:active,
-.sub-menu-toggle:hover {
-	background: transparent;
-	color: $default;
+.menu-toggle,
+.sub-menu-toggle {
+
+	&:active,
+	&:focus,
+	&:hover {
+		background: transparent;
+		color: $default;
+	}
 }
 
 .sub-menu-toggle {
@@ -108,21 +111,21 @@
 	border: 0;
 	padding: 20px;
 	position: absolute;
-    right: 0;
-    top: 0;
-}
+	right: 0;
+	top: 0;
 
-.sub-menu-toggle:before {
-	color: $linkDefault;
-    content: "\f347";
-    display: block;
-    font-family: "dashicons";
-    font-size: inherit;
-    line-height: inherit;
-}
+	&::before {
+		color: $linkDefault;
+		content: "\f347";
+		display: block;
+		font-family: "dashicons";
+		font-size: inherit;
+		line-height: inherit;
+	}
 
-.sub-menu-toggle.activated {
-	transform: rotate(180deg);
+	.activated {
+		transform: rotate(180deg);
+	}
 }
 
 /*=====================================
@@ -138,64 +141,63 @@
 		clear: both;
 		line-height: 1;
 		text-align: left;
-	}
 
-	.genesis-nav-menu .menu-item {
-		display: inline-block;
-		position: relative;
-		text-align: left;
-	}
+		.menu-item {
+			display: inline-block;
+			position: relative;
+			text-align: left;
+		}
 
-	.genesis-nav-menu a {
-		border-bottom: 0;
-		display: block;
-		padding: 20px;
-	}
+		a {
+			border-bottom: 0;
+			display: block;
+			padding: 20px;
+		}
 
-	.genesis-nav-menu > .menu-item > a {
-		padding: 20px;
-	}
+		> .menu-item > a {
+			padding: 20px;
+		}
 
-	/* Sub Menu */
+		/* Sub Menu */
+		.sub-menu {
+			display: none;
+			left: 0;
+			margin-left: 0;
+			position: absolute;
+			width: 200px;
+			z-index: 99;
 
-	.genesis-nav-menu .sub-menu {
-		display: none;
-		left: 0;
-		margin-left: 0;
-		position: absolute;
-		width: 200px;
-		z-index: 99;
-	}
+			a {
+				background: #fff;
+				border: 1px solid #ddd;
+				border-top: 0;
+				padding: 20px;
+				word-wrap: break-word;
+			}
 
-	.genesis-nav-menu .sub-menu a {
-		background: #fff;
-		border: 1px solid #ddd;
-		border-top: 0;
-		padding: 20px;
-		word-wrap: break-word;
-	}
+			> .menu-item:first-child {
+				border-top: 1px solid #ddd;
+			}
 
-	.genesis-nav-menu .sub-menu > .menu-item:first-child {
-		border-top: 1px solid #ddd;
-	}
+			.sub-menu {
+				margin: -1px 0 0 198px;
+				top: 0;
 
-	.genesis-nav-menu .sub-menu .sub-menu {
-		margin: -1px 0 0 198px;
-		top: 0;
-	}
+				a {
+					padding: 20px;
+				}
+			}
 
-	.genesis-nav-menu .sub-menu .sub-menu a {
-		padding: 20px;
-	}
+			a,
+			.menu-item {
+				display: block;
+			}
 
-	.genesis-nav-menu .sub-menu a,
-	.genesis-nav-menu .sub-menu .menu-item {
-		display: block;
-	}
-
-	.genesis-nav-menu .menu-item-has-children:hover > .sub-menu {
-		display: block;
-		left: auto;
+			.menu-item-has-children:hover > .sub-menu {
+				display: block;
+				left: auto;
+			}
+		}
 	}
 
 	/* Genesis Navigation */
@@ -214,10 +216,13 @@
 		position: static;
 	}
 
-	.nav-primary > .wrap,
-	.nav-secondary > .wrap {
-		max-width: 1240px;
-		padding: 0 40px;
+	.nav-primary,
+	.nav-secondary {
+
+		> .wrap {
+			max-width: 1240px;
+			padding: 0 40px;
+		}
 	}
 
 	/* Secondary Navigation */

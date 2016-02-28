@@ -22,9 +22,12 @@
 		width: 320px;
 	}
 
-	.sidebar-content .sidebar-primary,
-	.sidebar-sidebar-content .sidebar-primary {
-		float: left;
+	.sidebar-content,
+	.sidebar-sidebar-content {
+
+		.sidebar-primary {
+			float: left;
+		}
 	}
 
 	/* Secondary Sidebar */

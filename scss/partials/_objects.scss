@@ -14,9 +14,12 @@ img {
 	height: auto;
 }
 
-.featured-content img,
-.gallery img {
-	width: auto;
+.featured-content,
+.gallery {
+
+	img {
+		width: auto;
+	}
 }
 
 .wp-caption {
