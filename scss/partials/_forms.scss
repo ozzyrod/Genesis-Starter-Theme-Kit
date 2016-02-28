@@ -89,9 +89,11 @@ input[type="search"]::-webkit-search-results-button {
 	float: right;
 }
 
-.entry-content .search-form,
-.site-header .search-form {
-	width: 50%;
+.entry-content,
+.site-header {
+	.search-form {
+		width: 50%;
+	}
 }
 
 .genesis-nav-menu .search input[type="submit"],
