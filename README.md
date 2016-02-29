@@ -8,8 +8,8 @@ A development kit for WordPress themes which includes starter SCSS files and a G
 4. Generation of a POT file for translation
 5. Automatic zipping of the theme without including the development files.
 
-<a href="#installation">Installation/Initiation Instructions</a>
-<a href="#optional-commands">Optional Gulp Commands</a>
+- <a href="#installation">Installation/Initiation Instructions</a>
+- <a href="#optional-commands">Optional Gulp Commands</a>
 
 <hr/>
 
