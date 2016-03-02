@@ -41,7 +41,7 @@ Follow me on Twitter: <a href="https://twitter.com/cjkoepke">@cjkoepke</a>
 <hr/>
 
 ## Installation
-**NOTE:** Use of the Gulp task file requires you to have <a href="https://docs.npmjs.com/getting-started/installing-node">Node and NPM</a> to be installed on your computer.
+**NOTE:** Use of the Gulp task file requires you to have <a href="https://docs.npmjs.com/getting-started/installing-node">Node and NPM</a> and <a href="http://sass-lang.com/install">SASS</a> installed on your computer.
 
 1. Clone the repo to your desktop, somewhere **other** than in your theme root (you don't want updates to override your theme edits!)
 2. Copy the files in the cloned repo to your theme root.
@@ -74,6 +74,8 @@ That's it! Gulp will translate all the PHP files in your theme, and output a POT
 
 ### Package Theme for Production
 You can package your theme for production in a ZIP file by running the following command. Depending on the size of your theme, it may take a while — be patient! The command will automatically ignore dev-kit files (gulpfile.js, package.json, and node_modules). It will keep the SCSS folder in `/assets/` since end-users will find this useful.
+
+**NOTE**: It might be a good idea to update the compression method for SCSS to `compressed` just prior to packaging, and manually add the commented header at the top after output (this creates smaller file, but will remove the `style.css` header and thus break the theme).
 
 ```
 $ gulp package-theme
