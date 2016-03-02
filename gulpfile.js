@@ -21,7 +21,7 @@ var PATHS = {
 
 //* Load and define dependencies
 var gulp = require( 'gulp' );
-var scss = require( 'gulp-sass' );
+var scss = require( 'gulp-ruby-sass' );
 var uglify = require( 'gulp-uglify' );
 var rename = require( 'gulp-rename' );
 var sort = require( 'gulp-sort' );
@@ -43,8 +43,7 @@ gulp.task( 'scripts', function() {
 //* Gulp task to compile, minify, and output stylesheet in place of old uncompressed version
 gulp.task( 'scss', function() {
 
-	gulp.src( PATHS.scss + 'style.scss' )
-		.pipe( scss( { outputStyle: 'compressed' } ) )
+	scss( PATHS.scss + 'style.scss', { style: 'compact' } )
 		.pipe( gulp.dest( './' ) );
 
 });
