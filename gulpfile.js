@@ -7,16 +7,9 @@
  *
  */
 
-
 'use strict';
 
-//* Load and define dependencies
-var gulp = require( 'gulp' );
-var watch = require( 'gulp-watch' );
-var sass = require( 'gulp-sass' );
-var uglify = require( 'gulp-uglify' );
-var rename = require( 'gulp-rename' );
-
+//* Store paths
 var PATHS = {
 	js: './assets/js/',
 	scss: './assets/scss/',
@@ -26,12 +19,21 @@ var PATHS = {
 	}
 }
 
-var taskLoader = [ 'scripts', 'scss' ];
+//* Load and define dependencies
+var gulp = require( 'gulp' );
+var scss = require( 'gulp-ruby-sass' );
+var uglify = require( 'gulp-uglify' );
+var rename = require( 'gulp-rename' );
+var sort = require( 'gulp-sort' );
+var wpPot = require( 'gulp-wp-pot' );
+var zip = require( 'gulp-zip' );
+
+var taskLoader = [ 'scripts', 'scss', 'watch' ];
 
 //* Gulp task to combine JS files, minify, and output to bundle.min.js
 gulp.task( 'scripts', function() {
 
-	gulp.src( PATHS.js + '*.js')
+	gulp.src( PATHS.js + '**/*.js' )
 		.pipe( uglify() )
 		.pipe( rename({ extname: '.min.js' }))
 		.pipe( gulp.dest( PATHS.build.js ) );
@@ -41,22 +43,38 @@ gulp.task( 'scripts', function() {
 //* Gulp task to compile, minify, and output stylesheet in place of old uncompressed version
 gulp.task( 'scss', function() {
 
-	gulp.src( PATHS.scss + 'style.scss' )
-		.pipe( sass( { outputStyle: 'compressed' } ) )
+	scss( PATHS.scss + 'style.scss', { style: 'compact' } )
 		.pipe( gulp.dest( './' ) );
 
-});
-
-gulp.task( 'minify-css', function() {
-	gulp.src( './style.css' )
-		.pipe( gulp.dest( './' ) );
 });
 
 //* Watch files
 gulp.task( 'watch', function() {
 
-	gulp.watch( paths.js + '*.js', ['scripts'] );
-	gulp.watch( paths.scss + '*.scss', ['scss'] );
+	gulp.watch( PATHS.js + '**/*.js', ['scripts'] );
+	gulp.watch( PATHS.scss + '**/*.scss', ['scss'] );
+
+});
+
+//* ZIP theme
+gulp.task( 'package-theme', function() {
+
+	gulp.src( ['./**/*', '!./node_modules/', '!./gulpfile.js', '!./package.json' ] )
+		.pipe( zip( __dirname.split("/").pop() + '.zip' ) )
+		.pipe( gulp.dest( './' ) );
+
+});
+
+//* Translate theme
+gulp.task( 'translate-theme', function() {
+
+	gulp.src( [ './**/*.php' ] )
+		.pipe( sort() )
+		.pipe( wpPot({
+			domain: "startertheme",
+			headers: false
+		}))
+		.pipe( gulp.dest( './translation/' ));
 
 });
 
